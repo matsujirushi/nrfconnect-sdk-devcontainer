@@ -1,0 +1,24 @@
+{
+	"name": "nRF Connect SDK",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"SDK_NRF_REVISION": "v2.0-branch"
+		}
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"nordic-semiconductor.nrf-connect-extension-pack",
+				"ms-vscode.cpptools",
+				"marus25.cortex-debug"
+			]
+		}
+	},
+
+	"updateContentCommand": "cd /workdir/project && west init -m https://github.com/nrfconnect/sdk-nrf --mr v2.0-branch && west update --narrow -o=--depth=1"
+}
